@@ -18,10 +18,9 @@
 #
 
 # Install FTDI drivers
-unless File.file?( node['node-dmx-stack']['ftdi']['driver_file_loc'] )
-	bash 'install_ftdi_drivers' do
-	    code <<-EOH
-            wget -O- https://raw.githubusercontent.com/KABA-CCEAC/node-ftdi/master/install.sh | bash
-	    EOH
-    end
+bash 'install_ftdi_drivers' do
+    code <<-EOH
+        wget -O- https://raw.githubusercontent.com/KABA-CCEAC/node-ftdi/master/install.sh | bash
+    EOH
+    not_if do ::File.file?( node['node-dmx-stack']['ftdi']['driver_file_loc'] ) end
 end

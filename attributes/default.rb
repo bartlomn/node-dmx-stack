@@ -1,2 +1,2 @@
 
-default['node-dmx-stack']['ftdi']['remote_install_script'] = 'https://raw.githubusercontent.com/KABA-CCEAC/node-ftdi/master/install.sh'
+default['node-dmx-stack']['ftdi']['driver_file_loc'] = '/usr/local/include/libftd2xx/ftd2xx.h'

@@ -18,10 +18,10 @@
 #
 
 # Install FTDI drivers
-#if File.file?( "#{ node['frontend-standard-stack']['project']['dir'] }/package.json" )
+unless File.file?( node['node-dmx-stack']['ftdi']['driver_file_loc'] )
 	bash 'install_ftdi_drivers' do
 	    code <<-EOH
             wget -O- https://raw.githubusercontent.com/KABA-CCEAC/node-ftdi/master/install.sh | bash
 	    EOH
     end
-#end
+end
